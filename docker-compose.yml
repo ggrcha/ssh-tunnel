@@ -1,0 +1,7 @@
+version: '3.5'
+services: 
+ swarm-ssh:
+   image: e-didatico/swarm-ssh
+   network_mode: host
+   ports:
+     - 23771:23771
