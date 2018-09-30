@@ -10,4 +10,14 @@ if [[ -z "${REMOTE_USER}" ]]; then
 	exit 1
 fi
 
-ssh -4 -v -NL 23771:"${REMOTE_HOST}":2377 "${REMOTE_USER}"@"${REMOTE_HOST}"
+if [[ -z "${REMOTE_PORT}" ]]; then
+        echo ERROR: REMOTE_PORT cannot be zero
+        exit 1
+fi
+
+if [[ -z "${LOCAL_PORT}" ]]; then
+        echo ERROR: LOCAL_PORT cannot be zero
+        exit 1
+fi
+
+ssh -4 -v -NL "${REMOTE_PORT}":"${REMOTE_HOST}":"${LOCAL_PORT}" "${REMOTE_USER}"@"${REMOTE_HOST}"
