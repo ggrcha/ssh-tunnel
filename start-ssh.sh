@@ -20,4 +20,4 @@ if [[ -z "${LOCAL_PORT}" ]]; then
         exit 1
 fi
 
-ssh -4 -v -NL "${REMOTE_PORT}":"${REMOTE_HOST}":"${LOCAL_PORT}" "${REMOTE_USER}"@"${REMOTE_HOST}"
+ssh -4 -v -NL "${LOCAL_PORT}":"${REMOTE_HOST}":"${REMOTE_PORT}" "${REMOTE_USER}"@"${REMOTE_HOST}"
